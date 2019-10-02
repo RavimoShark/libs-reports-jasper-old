@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GroupeInterventions" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3bf4cf1-531b-420f-b6d8-96bb63615791">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="DateFrom" class="java.util.Date"/>
+	<parameter name="DateUntil" class="java.util.Date"/>
+	<parameter name="Group" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 1]]>
+	</queryString>
+	<variable name="TotalInterventions" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TotalInterventionsCost" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="50" width="555" height="50" uuid="4fb1e781-ace5-4a1d-a98e-daaaad707e62">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="50" uuid="87aee061-bf8d-419d-abdc-9302de59449a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
+				<reportElement x="84" y="54" width="113" height="16" uuid="b4df8e97-4c0f-4c6c-9475-a381d697fa48"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DateFrom}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="74" width="393" height="16" uuid="9261d66a-d821-4074-961c-afb280b9d136"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Group}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="54" width="79" height="16" uuid="49e4517f-939b-4c61-93fd-a32565f72377"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[From:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="74" width="79" height="16" uuid="0d4ce112-ec50-4217-af29-a63c3bb1bc2e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Groupe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="54" width="86" height="16" uuid="4b1df694-c121-4673-b371-7c42d950c932"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[To:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
+				<reportElement x="283" y="54" width="194" height="16" uuid="cf90dcd5-1d66-4ee7-baf9-f5fc7c58c4b5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DateUntil}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="20" uuid="cb26c6bb-d1c4-409f-957c-bb88734ba038">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<subreportParameter name="DateFrom">
+					<subreportParameterExpression><![CDATA[$P{DateFrom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DateUntil">
+					<subreportParameterExpression><![CDATA[$P{DateUntil}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Group">
+					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalInterventions"/>
+				<returnValue subreportVariable="TotalCost" toVariable="TotalInterventionsCost"/>
+				<subreportExpression><![CDATA["common/Interventions.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="40" uuid="e302bb2e-662c-459b-b002-2faaa79433ce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)">
+				<reportElement x="150" y="10" width="50" height="20" uuid="3a16c3ae-d2db-4a84-ab97-143718b02366">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph rightIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalInterventions}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="150" height="20" uuid="10e12eb6-80cb-42a0-8aa8-76a668d23ae9">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total Interventions:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="¤#,##0.##;¤-#,##0.##">
+				<reportElement positionType="Float" x="350" y="10" width="100" height="20" uuid="6ccea194-b1d3-45b2-b243-dcebf387aa54">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph rightIndent="0" tabStopWidth="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalInterventionsCost}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="10" width="150" height="20" uuid="1c317965-11ab-423a-a9a1-843f86a76357">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total Cost:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

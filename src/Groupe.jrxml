@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Groupe" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" whenResourceMissingType="Empty" uuid="0d81b651-dbf5-4235-ae6a-1229e7807978">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
+	<parameter name="DateFrom" class="java.util.Date"/>
+	<parameter name="DateUntil" class="java.util.Date"/>
+	<parameter name="Group" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 1]]>
+	</queryString>
+	<variable name="TotalTasks" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TotalVisits" class="java.lang.Integer" calculation="System">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TotalInterventions" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TotalInterventionsCost" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="200">
+			<rectangle>
+				<reportElement x="0" y="100" width="555" height="100" uuid="420aa357-236a-45ab-bb14-72b8ccae9fc6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField evaluationTime="Report" pattern="#,##0.###;(#,##0.###-)">
+				<reportElement positionType="Float" x="450" y="110" width="100" height="20" uuid="c20e9f1b-7253-4ccb-b304-3f75695ddf55">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0" tabStopWidth="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalVisits}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="110" width="200" height="20" uuid="3709e4e0-685c-4497-b93c-11b152e3c150">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[VISITES PREVENTIVES:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="">
+				<reportElement x="200" y="110" width="50" height="20" uuid="6f3118fa-3071-441d-be63-82601777f38e">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalTasks}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="110" width="200" height="20" uuid="bf46b03e-6505-4772-9da1-d62107a89405">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[VISITES CURATIFS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="200" height="20" uuid="8b68fc41-bb03-4a90-9e33-bb7b1a4cf065">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[PIÈCES CHANGÉES:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="">
+				<reportElement x="200" y="140" width="50" height="20" uuid="b67cd5b1-59e9-451d-a706-dc2c65beeef7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalInterventions}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="140" width="200" height="20" uuid="fef358f9-55a8-48e5-ac92-ba8d749471e9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[PIÈCES CHANGÉES COÛT:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="450" y="140" width="100" height="20" uuid="f28d7393-5ed3-4cfc-bb85-4b5dd97e60f6">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0" tabStopWidth="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalInterventionsCost}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="450" y="170" width="100" height="20" uuid="7e028eee-829d-4e9d-a841-abcfa746389a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="170" width="200" height="20" uuid="fc0e3f1c-13c8-476f-9303-47c4d82be47d">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[PAGES TOTALES:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="50" width="555" height="50" uuid="ab8c8712-4919-4d1e-bdeb-05c98495773c">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="50" uuid="8375ed48-4c37-409d-a09e-0bb29cd73c7f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
+				<reportElement x="84" y="54" width="113" height="16" uuid="7da8ad7e-241e-4b40-ae5e-0b93886a6e38"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DateFrom}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="74" width="393" height="16" uuid="d3f5f676-c7f7-45ae-86f6-93236ae1270b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Group}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="54" width="79" height="16" uuid="9ae6bf66-a818-40e6-b11c-4562a7dee145"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[From:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="74" width="79" height="16" uuid="5b48aa4f-cda1-486e-bac2-cd78e53623ae"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Groupe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="54" width="86" height="16" uuid="a69c9ed3-054e-41d2-8adb-88116f830278"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[To:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
+				<reportElement x="283" y="54" width="194" height="16" uuid="4f8b54d6-f8f4-44d6-8622-1e3b8acc0b7c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DateUntil}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="40">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="20" width="555" height="20" uuid="df63ed10-fd50-4b53-a0e1-efb0af83d40e">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<subreportParameter name="DateFrom">
+					<subreportParameterExpression><![CDATA[$P{DateFrom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DateUntil">
+					<subreportParameterExpression><![CDATA[$P{DateUntil}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Group">
+					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalTasks"/>
+				<subreportExpression><![CDATA["common/Tasks.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="20" uuid="b0db5f37-a307-4d4b-8ac1-e21e2b7dc6dd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[VISITES CURATIFS]]></text>
+			</staticText>
+		</band>
+		<band height="40">
+			<subreport>
+				<reportElement x="0" y="20" width="554" height="20" uuid="5fe2363c-1677-478e-93ca-376d89b1ea57">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<subreportParameter name="DateFrom">
+					<subreportParameterExpression><![CDATA[$P{DateFrom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DateUntil">
+					<subreportParameterExpression><![CDATA[$P{DateUntil}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Group">
+					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalVisits"/>
+				<subreportExpression><![CDATA["common/Visits.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="20" uuid="032058c0-7653-4e5b-aa88-ef264c98decd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[VISITES PREVENTIVES]]></text>
+			</staticText>
+		</band>
+		<band height="40">
+			<subreport>
+				<reportElement x="0" y="20" width="555" height="20" uuid="f4ff4008-b9dd-4e14-8bbd-9873d93ca819">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<subreportParameter name="DateFrom">
+					<subreportParameterExpression><![CDATA[$P{DateFrom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="DateUntil">
+					<subreportParameterExpression><![CDATA[$P{DateUntil}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Group">
+					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalInterventions"/>
+				<returnValue subreportVariable="TotalCost" toVariable="TotalInterventionsCost"/>
+				<subreportExpression><![CDATA["common/Interventions.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="20" uuid="abb3a5c3-479a-428e-87c8-735937da31c6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[INTERVENTIONS]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField pattern="d/M/yy h:mm a">
+				<reportElement x="196" y="0" width="280" height="15" uuid="a1ff2afd-a781-4b45-ae06-b0f5c9b65bec">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="501" y="0" width="54" height="15" uuid="c0bfe9fe-308c-488f-8487-35e7e62af591">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="0" width="25" height="15" uuid="f1fb8eed-7f3b-4c72-8b13-0cc3096ede7a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="95">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="80" uuid="7ae78885-cdbb-4eb7-9fad-fbe28c70144a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+			</rectangle>
+			<textField evaluationTime="Report" pattern="#,##0.###;(#,##0.###-)">
+				<reportElement positionType="Float" x="450" y="10" width="100" height="20" uuid="609f582f-97ad-49b5-b74f-905dfe4572e9">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0" tabStopWidth="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalVisits}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="10" width="200" height="20" uuid="d581c01c-9a65-4a84-8094-88fa42cac488">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[VISITES PREVENTIVES:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="">
+				<reportElement x="200" y="10" width="50" height="20" uuid="395c5351-df64-4789-b96e-90360ca96f2b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalTasks}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="200" height="20" uuid="a77be283-d3a8-480e-a1b9-d92eb6ee2dd6">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[VISITES CURATIFS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="200" height="20" uuid="e37ce494-39b8-4e85-8377-c1c46bb63610">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[PIÈCES CHANGÉES:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="">
+				<reportElement x="200" y="40" width="50" height="20" uuid="4cfb4e6e-e8c3-4845-af2f-5000ccffa4ac"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalInterventions}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="40" width="200" height="20" uuid="e2e6e05a-32b3-40ac-b3bd-e33705286dbe"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph tabStopWidth="0"/>
+				</textElement>
+				<text><![CDATA[PIÈCES CHANGÉES COÛT:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="450" y="40" width="100" height="20" uuid="c0947b82-a149-423f-b0a8-657b03edde10">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13"/>
+					<paragraph lineSpacing="Single" rightIndent="0" tabStopWidth="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalInterventionsCost}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yy h:mm a">
+				<reportElement x="196" y="80" width="280" height="15" uuid="e9804765-8825-46f7-ade9-b7c4e81b3a09">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="80" width="25" height="15" uuid="1664a148-c9c4-4cfa-9716-dbd29265830b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="501" y="80" width="54" height="15" uuid="1fcab36b-e88e-4cfc-8dd9-91ca51fbbe71">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

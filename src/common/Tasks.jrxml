@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tasks" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" uuid="251567b6-1880-45bb-a5e2-cccfc3143d4d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="DateFrom" class="java.util.Date"/>
+	<parameter name="DateUntil" class="java.util.Date"/>
+	<parameter name="Group" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT "migrationSAV"."GROUPE_TASKS_COUNT"."Groupe",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."RefClient",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."Date",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."Secteur",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."Technicien",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."Initiator",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."PostalCode",
+	"migrationSAV"."GROUPE_TASKS_COUNT"."times"
+FROM "migrationSAV"."GROUPE_TASKS_COUNT"
+WHERE ( $P{DateFrom} IS NULL OR $P{DateFrom} <= Date )
+AND ( $P{DateUntil} IS NULL  OR $P{DateUntil} >= "migrationSAV"."GROUPE_TASKS_COUNT"."Date")
+AND ( $P{Group} IS NULL  OR $P{Group} = "migrationSAV"."GROUPE_TASKS_COUNT"."Groupe")
+ORDER BY Date, Secteur, RefClient, Initiator, Technicien]]>
+	</queryString>
+	<field name="Groupe" class="java.lang.String"/>
+	<field name="RefClient" class="java.lang.String"/>
+	<field name="Date" class="java.sql.Date"/>
+	<field name="Secteur" class="java.lang.Double"/>
+	<field name="Technicien" class="java.lang.String"/>
+	<field name="Initiator" class="java.lang.String"/>
+	<field name="PostalCode" class="java.lang.Double"/>
+	<field name="times" class="java.lang.Integer"/>
+	<variable name="Total" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{RefClient}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="50" height="15" uuid="89982f84-02bf-4fa1-b9c0-24e1ab3c2f74">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="0" width="50" height="15" uuid="785dd003-01b8-4cb2-8e52-663153d0e59f">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="250" y="0" width="50" height="15" uuid="e295b4a9-856a-461d-a52d-2addb3ecc0f1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Secteur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="150" y="0" width="100" height="15" uuid="cf62846a-2a4d-44ef-bf78-a2ba9340b5d0">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Technicien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="300" y="0" width="100" height="15" uuid="a72f56cf-04f5-487b-a2a0-392f22cf4f43">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Initiator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="100" y="0" width="50" height="15" uuid="8be28502-1b2a-45ab-a2a6-fa1905e5cc82">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CP]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="0" width="50" height="15" uuid="ff4f51b1-a3c6-45d8-af28-87094f94ec00">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RefClient}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="50" y="0" width="50" height="15" uuid="994b9a14-1a8c-4329-a74f-9b988739ebf6">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="250" y="0" width="50" height="15" uuid="4aefd2ba-6893-448e-b62c-b2c154bd44b6"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Secteur}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="150" y="0" width="100" height="15" uuid="f59b3aa9-de00-42f1-aafc-9a0c33570116"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Technicien} + '(' + $F{times} +')']]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="300" y="0" width="100" height="15" uuid="853e2864-cd7d-4354-a43c-7a0671250a53"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Initiator}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="100" y="0" width="50" height="15" uuid="0a897aef-8f5a-4f8e-9f8c-b0bfb61af696"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PostalCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

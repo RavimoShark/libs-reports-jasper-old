@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Interventions" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" uuid="0089680f-636f-421e-b19d-e4ff3d1e7beb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="DateFrom" class="java.util.Date"/>
+	<parameter name="DateUntil" class="java.util.Date"/>
+	<parameter name="Group" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT "migrationSAV"."GROUPE_INTERVENTIONS"."Groupe",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."RefClient",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."DateCall",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."DateFix",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."RefArticle",
+	"migrationSAV"."GROUPE_INTERVENTIONS".quantite,
+	"migrationSAV"."GROUPE_INTERVENTIONS"."PostalCode",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."Designation_Article",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."Cost"
+FROM "migrationSAV"."GROUPE_INTERVENTIONS"
+WHERE 
+	  ( 
+	 $P{DateFrom} IS NULL  
+	 OR $P{DateFrom} <= "migrationSAV"."GROUPE_INTERVENTIONS"."DateCall") 
+	 AND ( 
+	 $P{DateUntil} IS NULL  
+	 OR $P{DateUntil} >= "migrationSAV"."GROUPE_INTERVENTIONS"."DateCall") 
+	 AND ( 
+	 $P{Group} IS NULL  
+	 OR $P{Group} = "migrationSAV"."GROUPE_INTERVENTIONS"."Groupe")
+ORDER BY DateCall, RefClient]]>
+	</queryString>
+	<field name="Groupe" class="java.lang.String"/>
+	<field name="RefClient" class="java.lang.String"/>
+	<field name="DateCall" class="java.sql.Date"/>
+	<field name="DateFix" class="java.sql.Date"/>
+	<field name="RefArticle" class="java.lang.String"/>
+	<field name="quantite" class="java.lang.Integer"/>
+	<field name="PostalCode" class="java.lang.Double"/>
+	<field name="Designation_Article" class="java.lang.String"/>
+	<field name="Cost" class="java.lang.Double"/>
+	<variable name="Total" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{RefClient}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TotalCost" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Cost}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="15" uuid="81fa78f4-417a-40e6-8e4f-c20060740003">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="50" height="15" uuid="849f1cff-e874-403a-a18c-efbc82d7b460">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DateCall]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="50" height="15" uuid="88a70020-3e02-4ee1-af31-73e421e5fea0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DateFix]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="100" height="15" uuid="ba75c4f5-9908-4401-8ca9-99fe9189000b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RefArticle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="50" height="15" uuid="1eb8a689-8527-44ed-b1ff-a5295353e873">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="50" height="15" uuid="77d15d59-55e6-4600-91f1-a047480f1cc9">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="150" height="15" uuid="1969caa5-b6f0-4189-bf80-913ddd9384fc">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Piece]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="50" height="15" uuid="bd43c549-2f0d-4671-b01e-fc95c8ce3f48">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cost]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="50" height="15" uuid="ea9a171c-ca75-40b6-9b57-4cdb220962b1">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RefClient}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
+				<reportElement x="50" y="0" width="50" height="15" uuid="800ce06c-1211-478f-beb5-e08c2b6d8a4f"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DateCall}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
+				<reportElement x="100" y="0" width="50" height="15" uuid="eab4d72a-e88a-4ab8-8c86-de015df5864e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DateFix}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="150" y="0" width="100" height="15" uuid="a3bd1c51-f6cc-4669-b1d7-f4a4c6a70144">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RefArticle}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="50" height="15" uuid="0355fa13-50f9-4bc6-b808-b0a4b6ddbbec"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantite}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement x="450" y="0" width="50" height="15" uuid="c127ec05-e964-4748-9c57-a2c85b0a2d37">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PostalCode}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="ContainerHeight" x="300" y="0" width="150" height="15" uuid="4873a10a-54c8-49dd-ab15-f0ca6e769ca7"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Designation_Article}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement x="500" y="0" width="50" height="15" uuid="7fa7571b-c4a7-4e3e-a7cd-14b5464fbb11"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Cost}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
