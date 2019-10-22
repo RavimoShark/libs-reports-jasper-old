@@ -1,7 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/Groupe.jrxml=UTF-8
 encoding//src/GroupeInterventions.jrxml=UTF-8
+encoding//src/GroupeTaskVisits.jrxml=UTF-8
 encoding//src/GroupeTasks.jrxml=UTF-8
+encoding//src/GroupeVisits.jrxml=UTF-8
 encoding//src/common/Interventions.jrxml=UTF-8
 encoding//src/common/Tasks.jrxml=UTF-8
 encoding//src/common/Visits.jrxml=UTF-8

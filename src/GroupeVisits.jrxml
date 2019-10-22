@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GroupeTasks" pageWidth="600" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="25" rightMargin="20" topMargin="20" bottomMargin="25" whenResourceMissingType="Empty" uuid="e0c4adbf-16cd-41f2-ab0e-0a77f5ed7de5">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GroupeVisits" pageWidth="600" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="25" rightMargin="20" topMargin="20" bottomMargin="25" whenResourceMissingType="Empty" uuid="e0c4adbf-16cd-41f2-ab0e-0a77f5ed7de5">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="DateFrom" class="java.util.Date"/>
@@ -42,7 +42,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="20"/>
 				</textElement>
-				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE - VISITS CURATIFS]]></text>
+				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE - VISITES PREVENTIVES]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
 				<reportElement x="84" y="55" width="113" height="20" uuid="2c57149f-594a-430c-8a88-421d3b3c78fb"/>
@@ -133,7 +133,7 @@
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalTasks"/>
-				<subreportExpression><![CDATA[$P{__PATH} + "common/Tasks.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{__PATH} + "common/Visits.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
@@ -149,7 +149,7 @@
 				</graphicElement>
 			</rectangle>
 			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)">
-				<reportElement x="150" y="10" width="50" height="20" uuid="c690aa4d-72a1-47fd-9774-aeb67a76f209">
+				<reportElement x="200" y="10" width="50" height="20" uuid="c690aa4d-72a1-47fd-9774-aeb67a76f209">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -160,7 +160,7 @@
 				<textFieldExpression><![CDATA[$V{TotalTasks}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="10" width="150" height="20" uuid="96b55405-4ff5-46e5-87d1-a439fbbbf3a0">
+				<reportElement x="0" y="10" width="200" height="20" uuid="96b55405-4ff5-46e5-87d1-a439fbbbf3a0">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -168,7 +168,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
-				<text><![CDATA[VISITES CURATIFS:]]></text>
+				<text><![CDATA[VISITES PREVENTIVES:]]></text>
 			</staticText>
 		</band>
 	</summary>

@@ -45,7 +45,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="26"/>
 				</textElement>
-				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE]]></text>
+				<text><![CDATA[RAVIMOSHARK - RAPORT INTERVENTIONS]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
 				<reportElement x="84" y="55" width="113" height="20" uuid="b4df8e97-4c0f-4c6c-9475-a381d697fa48"/>
@@ -149,6 +149,9 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
 			</rectangle>
 			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)">
 				<reportElement x="150" y="10" width="50" height="20" uuid="3a16c3ae-d2db-4a84-ab97-143718b02366">

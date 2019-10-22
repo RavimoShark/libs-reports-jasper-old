@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Interventions" pageWidth="550" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" whenResourceMissingType="Error" uuid="0089680f-636f-421e-b19d-e4ff3d1e7beb">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Interventions" pageWidth="550" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" whenResourceMissingType="Error" uuid="0089680f-636f-421e-b19d-e4ff3d1e7beb">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="DateFrom" class="java.util.Date"/>
@@ -12,6 +12,7 @@
 	<queryString>
 		<![CDATA[SELECT "migrationSAV"."GROUPE_INTERVENTIONS"."Groupe",
 	"migrationSAV"."GROUPE_INTERVENTIONS"."RefClient",
+	"migrationSAV"."GROUPE_INTERVENTIONS"."NameClient",
 	"migrationSAV"."GROUPE_INTERVENTIONS"."DateCall",
 	"migrationSAV"."GROUPE_INTERVENTIONS"."DateFix",
 	"migrationSAV"."GROUPE_INTERVENTIONS"."RefArticle",
@@ -37,6 +38,7 @@ ORDER BY DateCall, RefClient]]>
 	</queryString>
 	<field name="Groupe" class="java.lang.String"/>
 	<field name="RefClient" class="java.lang.String"/>
+	<field name="NameClient" class="java.lang.String"/>
 	<field name="DateCall" class="java.sql.Date"/>
 	<field name="DateFix" class="java.sql.Date"/>
 	<field name="RefArticle" class="java.lang.String"/>
@@ -55,7 +57,7 @@ ORDER BY DateCall, RefClient]]>
 	<columnHeader>
 		<band height="15" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="50" height="15" uuid="81fa78f4-417a-40e6-8e4f-c20060740003">
+				<reportElement x="0" y="0" width="100" height="15" uuid="81fa78f4-417a-40e6-8e4f-c20060740003">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -65,7 +67,7 @@ ORDER BY DateCall, RefClient]]>
 				<text><![CDATA[Client]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="50" y="0" width="50" height="15" uuid="849f1cff-e874-403a-a18c-efbc82d7b460">
+				<reportElement x="100" y="0" width="50" height="15" uuid="849f1cff-e874-403a-a18c-efbc82d7b460">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -73,10 +75,10 @@ ORDER BY DateCall, RefClient]]>
 					<pen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[DateCall]]></text>
+				<text><![CDATA[Appel]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="0" width="50" height="15" uuid="88a70020-3e02-4ee1-af31-73e421e5fea0">
+				<reportElement x="150" y="0" width="50" height="15" uuid="88a70020-3e02-4ee1-af31-73e421e5fea0">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -84,10 +86,10 @@ ORDER BY DateCall, RefClient]]>
 					<pen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[DateFix]]></text>
+				<text><![CDATA[Fixe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="150" y="0" width="100" height="15" uuid="ba75c4f5-9908-4401-8ca9-99fe9189000b">
+				<reportElement x="200" y="0" width="80" height="15" uuid="ba75c4f5-9908-4401-8ca9-99fe9189000b">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -98,7 +100,7 @@ ORDER BY DateCall, RefClient]]>
 				<text><![CDATA[RefArticle]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="250" y="0" width="50" height="15" uuid="1eb8a689-8527-44ed-b1ff-a5295353e873">
+				<reportElement x="280" y="0" width="20" height="15" uuid="1eb8a689-8527-44ed-b1ff-a5295353e873">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -139,14 +141,14 @@ ORDER BY DateCall, RefClient]]>
 					<pen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Cost]]></text>
+				<text><![CDATA[Coût]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement x="0" y="0" width="50" height="15" uuid="ea9a171c-ca75-40b6-9b57-4cdb220962b1">
+				<reportElement x="0" y="0" width="100" height="15" uuid="ea9a171c-ca75-40b6-9b57-4cdb220962b1">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -154,11 +156,13 @@ ORDER BY DateCall, RefClient]]>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{RefClient}]]></textFieldExpression>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RefClient} + " - " + $F{NameClient}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
-				<reportElement x="50" y="0" width="50" height="15" uuid="800ce06c-1211-478f-beb5-e08c2b6d8a4f"/>
+				<reportElement x="100" y="0" width="50" height="15" uuid="800ce06c-1211-478f-beb5-e08c2b6d8a4f"/>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -166,7 +170,7 @@ ORDER BY DateCall, RefClient]]>
 				<textFieldExpression><![CDATA[$F{DateCall}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
-				<reportElement x="100" y="0" width="50" height="15" uuid="eab4d72a-e88a-4ab8-8c86-de015df5864e"/>
+				<reportElement x="150" y="0" width="50" height="15" uuid="eab4d72a-e88a-4ab8-8c86-de015df5864e"/>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -174,7 +178,7 @@ ORDER BY DateCall, RefClient]]>
 				<textFieldExpression><![CDATA[$F{DateFix}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement x="150" y="0" width="100" height="15" uuid="a3bd1c51-f6cc-4669-b1d7-f4a4c6a70144">
+				<reportElement x="200" y="0" width="80" height="15" uuid="a3bd1c51-f6cc-4669-b1d7-f4a4c6a70144">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
@@ -185,7 +189,7 @@ ORDER BY DateCall, RefClient]]>
 				<textFieldExpression><![CDATA[$F{RefArticle}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
-				<reportElement x="250" y="0" width="50" height="15" uuid="0355fa13-50f9-4bc6-b808-b0a4b6ddbbec"/>
+				<reportElement x="280" y="0" width="20" height="15" uuid="0355fa13-50f9-4bc6-b808-b0a4b6ddbbec"/>
 				<box>
 					<pen lineWidth="1.0"/>
 				</box>
@@ -222,4 +226,15 @@ ORDER BY DateCall, RefClient]]>
 			</textField>
 		</band>
 	</detail>
+	<noData>
+		<band height="30">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="30" uuid="5f13abce-465d-41c0-8009-8dd715ded163"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[il n'y a pas d'interventions]]></text>
+			</staticText>
+		</band>
+	</noData>
 </jasperReport>

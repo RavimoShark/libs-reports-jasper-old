@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Groupe" pageWidth="600" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="550" leftMargin="25" rightMargin="25" topMargin="20" bottomMargin="25" isSummaryNewPage="true" whenResourceMissingType="Empty" uuid="0d81b651-dbf5-4235-ae6a-1229e7807978">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GroupeTaskVisits" pageWidth="600" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="550" leftMargin="25" rightMargin="25" topMargin="20" bottomMargin="25" isSummaryNewPage="true" whenResourceMissingType="Empty" uuid="0d81b651-dbf5-4235-ae6a-1229e7807978">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
@@ -20,19 +20,13 @@
 	<variable name="TotalVisits" class="java.lang.Integer" calculation="System">
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
-	<variable name="TotalInterventions" class="java.lang.Integer">
-		<initialValueExpression><![CDATA[0]]></initialValueExpression>
-	</variable>
-	<variable name="TotalInterventionsCost" class="java.lang.Double">
-		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
-	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="235">
+		<band height="200">
 			<rectangle>
-				<reportElement x="0" y="135" width="550" height="100" uuid="420aa357-236a-45ab-bb14-72b8ccae9fc6">
+				<reportElement x="0" y="135" width="550" height="65" uuid="420aa357-236a-45ab-bb14-72b8ccae9fc6">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -87,46 +81,8 @@
 				</textElement>
 				<text><![CDATA[VISITES CURATIFS:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="0" y="175" width="200" height="20" uuid="8b68fc41-bb03-4a90-9e33-bb7b1a4cf065">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph tabStopWidth="0"/>
-				</textElement>
-				<text><![CDATA[PIÈCES CHANGÉES:]]></text>
-			</staticText>
-			<textField evaluationTime="Report" pattern="">
-				<reportElement x="200" y="175" width="50" height="20" uuid="b67cd5b1-59e9-451d-a706-dc2c65beeef7"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph lineSpacing="Single" rightIndent="0"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{TotalInterventions}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="250" y="175" width="200" height="20" uuid="fef358f9-55a8-48e5-ac92-ba8d749471e9"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph tabStopWidth="0"/>
-				</textElement>
-				<text><![CDATA[PIÈCES CHANGÉES COÛT:]]></text>
-			</staticText>
-			<textField evaluationTime="Report" pattern="¤#,##0.00;¤-#,##0.00">
-				<reportElement x="450" y="175" width="100" height="20" uuid="f28d7393-5ed3-4cfc-bb85-4b5dd97e60f6">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box rightPadding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph lineSpacing="Single" rightIndent="0" tabStopWidth="0"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{TotalInterventionsCost}]]></textFieldExpression>
-			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="450" y="205" width="100" height="20" uuid="7e028eee-829d-4e9d-a841-abcfa746389a">
+				<reportElement x="450" y="170" width="100" height="20" uuid="7e028eee-829d-4e9d-a841-abcfa746389a">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<box rightPadding="5"/>
@@ -136,7 +92,7 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="250" y="205" width="200" height="20" uuid="fc0e3f1c-13c8-476f-9303-47c4d82be47d">
+				<reportElement x="250" y="170" width="200" height="20" uuid="fc0e3f1c-13c8-476f-9303-47c4d82be47d">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -165,7 +121,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="26"/>
 				</textElement>
-				<text><![CDATA[RAVIMOSHARK - RAPORT INTERVENTIONS]]></text>
+				<text><![CDATA[RAVIMOSHARK - RAPORT VISITS]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
 				<reportElement x="84" y="55" width="113" height="20" uuid="7da8ad7e-241e-4b40-ae5e-0b93886a6e38"/>
@@ -309,45 +265,6 @@
 				<text><![CDATA[VISITES PREVENTIVES]]></text>
 			</staticText>
 		</band>
-		<band height="40">
-			<subreport>
-				<reportElement x="0" y="20" width="550" height="20" uuid="f4ff4008-b9dd-4e14-8bbd-9873d93ca819">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<subreportParameter name="DateFrom">
-					<subreportParameterExpression><![CDATA[$P{DateFrom}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="DateUntil">
-					<subreportParameterExpression><![CDATA[$P{DateUntil}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="Group">
-					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="RefClient">
-					<subreportParameterExpression><![CDATA[$P{RefClient}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalInterventions"/>
-				<returnValue subreportVariable="TotalCost" toVariable="TotalInterventionsCost"/>
-				<subreportExpression><![CDATA[$P{__PATH} + "common/Interventions.jasper"]]></subreportExpression>
-			</subreport>
-			<staticText>
-				<reportElement positionType="Float" x="0" y="0" width="550" height="20" uuid="abb3a5c3-479a-428e-87c8-735937da31c6">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box>
-					<pen lineWidth="2.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[INTERVENTIONS]]></text>
-			</staticText>
-		</band>
 	</detail>
 	<pageFooter>
 		<band height="15" splitType="Stretch">
@@ -380,9 +297,9 @@
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="95">
+		<band height="55">
 			<rectangle>
-				<reportElement x="0" y="0" width="550" height="80" uuid="7ae78885-cdbb-4eb7-9fad-fbe28c70144a">
+				<reportElement x="0" y="0" width="550" height="40" uuid="7ae78885-cdbb-4eb7-9fad-fbe28c70144a">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -437,55 +354,18 @@
 				</textElement>
 				<text><![CDATA[VISITES CURATIFS:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="0" y="40" width="200" height="20" uuid="e37ce494-39b8-4e85-8377-c1c46bb63610">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph tabStopWidth="0"/>
-				</textElement>
-				<text><![CDATA[PIÈCES CHANGÉES:]]></text>
-			</staticText>
-			<textField evaluationTime="Report" pattern="">
-				<reportElement x="200" y="40" width="50" height="20" uuid="4cfb4e6e-e8c3-4845-af2f-5000ccffa4ac"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph lineSpacing="Single" rightIndent="0"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{TotalInterventions}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="250" y="40" width="200" height="20" uuid="e2e6e05a-32b3-40ac-b3bd-e33705286dbe"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph tabStopWidth="0"/>
-				</textElement>
-				<text><![CDATA[PIÈCES CHANGÉES COÛT:]]></text>
-			</staticText>
-			<textField evaluationTime="Report" pattern="¤#,##0.00;¤-#,##0.00">
-				<reportElement x="450" y="40" width="100" height="20" uuid="c0947b82-a149-423f-b0a8-657b03edde10">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box rightPadding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="13"/>
-					<paragraph lineSpacing="Single" rightIndent="0" tabStopWidth="0"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{TotalInterventionsCost}]]></textFieldExpression>
-			</textField>
 			<textField pattern="d/M/yy h:mm a">
-				<reportElement x="190" y="80" width="285" height="15" uuid="e9804765-8825-46f7-ade9-b7c4e81b3a09">
+				<reportElement x="190" y="40" width="285" height="15" uuid="e9804765-8825-46f7-ade9-b7c4e81b3a09">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="475" y="80" width="30" height="15" uuid="1664a148-c9c4-4cfa-9716-dbd29265830b">
+				<reportElement x="475" y="40" width="30" height="15" uuid="1664a148-c9c4-4cfa-9716-dbd29265830b">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -494,7 +374,7 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="505" y="80" width="45" height="15" uuid="1fcab36b-e88e-4cfc-8dd9-91ca51fbbe71">
+				<reportElement x="505" y="40" width="45" height="15" uuid="1fcab36b-e88e-4cfc-8dd9-91ca51fbbe71">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
