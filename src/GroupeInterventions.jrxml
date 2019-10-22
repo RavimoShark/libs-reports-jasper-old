@@ -6,6 +6,10 @@
 	<parameter name="DateFrom" class="java.util.Date"/>
 	<parameter name="DateUntil" class="java.util.Date"/>
 	<parameter name="Group" class="java.lang.String"/>
+	<parameter name="__PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RefClient" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT 1]]>
 	</queryString>
@@ -19,63 +23,94 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="100" splitType="Stretch">
+		<band height="135" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="50" width="555" height="50" uuid="4fb1e781-ace5-4a1d-a98e-daaaad707e62">
+				<reportElement x="0" y="50" width="555" height="85" uuid="4fb1e781-ace5-4a1d-a98e-daaaad707e62">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
 			</rectangle>
 			<staticText>
 				<reportElement x="0" y="0" width="555" height="50" uuid="87aee061-bf8d-419d-abdc-9302de59449a">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="26"/>
 				</textElement>
 				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
-				<reportElement x="84" y="54" width="113" height="16" uuid="b4df8e97-4c0f-4c6c-9475-a381d697fa48"/>
+				<reportElement x="84" y="55" width="113" height="20" uuid="b4df8e97-4c0f-4c6c-9475-a381d697fa48"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{DateFrom}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="84" y="74" width="393" height="16" uuid="9261d66a-d821-4074-961c-afb280b9d136"/>
+				<reportElement x="84" y="80" width="393" height="20" uuid="9261d66a-d821-4074-961c-afb280b9d136"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{Group}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="5" y="54" width="79" height="16" uuid="49e4517f-939b-4c61-93fd-a32565f72377"/>
+				<reportElement x="5" y="55" width="79" height="20" uuid="49e4517f-939b-4c61-93fd-a32565f72377"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<text><![CDATA[From:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="74" width="79" height="16" uuid="0d4ce112-ec50-4217-af29-a63c3bb1bc2e"/>
+				<reportElement x="5" y="80" width="79" height="20" uuid="0d4ce112-ec50-4217-af29-a63c3bb1bc2e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<text><![CDATA[Groupe:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="197" y="54" width="86" height="16" uuid="4b1df694-c121-4673-b371-7c42d950c932"/>
+				<reportElement x="197" y="55" width="86" height="20" uuid="4b1df694-c121-4673-b371-7c42d950c932">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<text><![CDATA[To:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
-				<reportElement x="283" y="54" width="194" height="16" uuid="cf90dcd5-1d66-4ee7-baf9-f5fc7c58c4b5"/>
+				<reportElement x="283" y="55" width="194" height="20" uuid="cf90dcd5-1d66-4ee7-baf9-f5fc7c58c4b5"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{DateUntil}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="105" width="79" height="20" uuid="63e504e7-22f6-4145-8c84-33a607a11758">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Client:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="105" width="393" height="20" uuid="5228058c-9b53-47ed-b02f-a763f902b2be"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RefClient}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -97,10 +132,13 @@
 				<subreportParameter name="Group">
 					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
 				</subreportParameter>
+				<subreportParameter name="RefClient">
+					<subreportParameterExpression><![CDATA[$P{RefClient}]]></subreportParameterExpression>
+				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalInterventions"/>
 				<returnValue subreportVariable="TotalCost" toVariable="TotalInterventionsCost"/>
-				<subreportExpression><![CDATA["common/Interventions.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{__PATH} + "common/Interventions.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>

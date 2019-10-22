@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GroupeTasks" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="e0c4adbf-16cd-41f2-ab0e-0a77f5ed7de5">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GroupeTasks" pageWidth="600" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="25" rightMargin="20" topMargin="20" bottomMargin="25" whenResourceMissingType="Empty" uuid="e0c4adbf-16cd-41f2-ab0e-0a77f5ed7de5">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="DateFrom" class="java.util.Date"/>
 	<parameter name="DateUntil" class="java.util.Date"/>
 	<parameter name="Group" class="java.lang.String"/>
+	<parameter name="__PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RefClient" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT 1]]>
 	</queryString>
@@ -16,63 +20,94 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="100" splitType="Stretch">
+		<band height="135" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="50" width="555" height="50" uuid="953e15d2-2787-4d54-848b-b2a8a81366e5">
+				<reportElement x="0" y="50" width="555" height="85" uuid="343b6c43-7609-4639-8568-00da1af06867">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="50" uuid="7ca240a1-7730-4c39-8d0c-35f5a15bf5d7">
+				<reportElement x="0" y="0" width="555" height="50" uuid="66329d77-6ca2-40d8-918a-0c510724b33b">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="26"/>
 				</textElement>
 				<text><![CDATA[RAVIMOSHARK - RAPORT GROUPE]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
-				<reportElement x="84" y="54" width="113" height="16" uuid="de14dfe5-7669-4c3b-8236-2ed8f503bb03"/>
+				<reportElement x="84" y="55" width="113" height="20" uuid="2c57149f-594a-430c-8a88-421d3b3c78fb"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{DateFrom}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="84" y="74" width="393" height="16" uuid="74f55cf0-9a73-4218-9492-02a54b1793f6"/>
+				<reportElement x="84" y="80" width="393" height="20" uuid="10ed3a52-37b4-4bcc-8170-7bfde2c4121e"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{Group}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="5" y="54" width="79" height="16" uuid="cac200dd-60b5-485c-9482-97382c5a910e"/>
+				<reportElement x="5" y="55" width="79" height="20" uuid="cdb0b2eb-133e-43e3-99f5-c4b67728de27"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<text><![CDATA[From:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="74" width="79" height="16" uuid="19a7d1db-dcad-40b4-bf9d-f4eca1b39da1"/>
+				<reportElement x="5" y="80" width="79" height="20" uuid="a42b7b44-b793-48dc-95a1-eb36bfdeabd0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<text><![CDATA[Groupe:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="197" y="54" width="86" height="16" uuid="3992e6e1-26da-43ca-82fc-889739a7c780"/>
+				<reportElement x="197" y="55" width="86" height="20" uuid="3021e9a7-c44c-4e25-a0bf-4afaad97722e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<text><![CDATA[To:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
-				<reportElement x="283" y="54" width="194" height="16" uuid="4ad74575-85f6-4dab-843e-e321b108f48c"/>
+				<reportElement x="283" y="55" width="194" height="20" uuid="c03510b5-75be-4de2-95d8-f6e5dead770f"/>
 				<textElement verticalAlignment="Middle">
 					<font size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{DateUntil}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="105" width="79" height="20" uuid="436e1109-7b45-4edc-b7e4-5c9676a653c5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Client:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="105" width="393" height="20" uuid="df1ae4f9-da27-458b-9dd2-ae78f5a544d9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RefClient}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -93,9 +128,12 @@
 				<subreportParameter name="Group">
 					<subreportParameterExpression><![CDATA[$P{Group}]]></subreportParameterExpression>
 				</subreportParameter>
+				<subreportParameter name="RefClient">
+					<subreportParameterExpression><![CDATA[$P{RefClient}]]></subreportParameterExpression>
+				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<returnValue subreportVariable="REPORT_COUNT" toVariable="TotalTasks"/>
-				<subreportExpression><![CDATA["common/Tasks.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{__PATH} + "common/Tasks.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>

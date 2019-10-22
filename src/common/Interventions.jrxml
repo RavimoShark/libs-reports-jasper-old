@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Interventions" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" uuid="0089680f-636f-421e-b19d-e4ff3d1e7beb">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Interventions" pageWidth="550" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" whenResourceMissingType="Error" uuid="0089680f-636f-421e-b19d-e4ff3d1e7beb">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB OLD"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="DateFrom" class="java.util.Date"/>
@@ -8,6 +8,7 @@
 	<parameter name="Group" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
+	<parameter name="RefClient" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT "migrationSAV"."GROUPE_INTERVENTIONS"."Groupe",
 	"migrationSAV"."GROUPE_INTERVENTIONS"."RefClient",
@@ -29,6 +30,9 @@ WHERE
 	 AND ( 
 	 $P{Group} IS NULL  
 	 OR $P{Group} = "migrationSAV"."GROUPE_INTERVENTIONS"."Groupe")
+	 AND ( 
+	 $P{RefClient} IS NULL  
+	 OR $P{RefClient} = "migrationSAV"."GROUPE_INTERVENTIONS"."RefClient")
 ORDER BY DateCall, RefClient]]>
 	</queryString>
 	<field name="Groupe" class="java.lang.String"/>
